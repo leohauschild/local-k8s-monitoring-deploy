@@ -3,6 +3,8 @@ o11y-studies-config
 # Local .terraform directories
 **/.terraform/*
 
+registry.terraform.io/*
+
 # .tfstate files
 *.tfstate
 *.tfstate.*
