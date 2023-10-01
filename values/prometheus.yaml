@@ -1,0 +1,32 @@
+grafana:
+  enabled: false
+
+defaultRules:
+  disabled:
+    InfoInhibitor: true
+
+alertmanager:
+  alertmanagerSpec:
+    replicas: 2
+  
+  config:
+    global:
+      resolve_timeout: 5m
+
+    route:
+      group_by: ['namespace']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 12h
+      receiver: discord
+      routes:
+      - match:
+          alertname: Watchdog
+        receiver: 'null'
+
+    receivers:
+      - name: 'null'
+      - name: discord
+        discord_configs:
+        - webhook_url: 'https://discord.com/api/webhooks/1124426043646816276/8y3eISd4NPVJ7TRDvC7q4lhYOoi4gQ7iqShFUguwFz4sOumOQoeJKcKbFosFKWVklDq6'
+          send_resolved: true

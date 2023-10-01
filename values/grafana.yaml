@@ -1,0 +1,42 @@
+replicas: 1
+
+### Caso queria mais seguraça utilizar uma secret já criado 
+### combinando com uma ferramente de criptografia, ex: sealed-secret
+# admin:
+#   existingSecret: "grafana-pass"
+#   userKey: admin-user
+#   passwordKey: admin-password
+
+adminUser: admin
+adminPassword: strongpassword
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    ## Datasource do prometheus no grafana
+    - name: Prometheus
+      type: prometheus
+      url: http://prometheus-stack-kube-prom-prometheus.prometheus-stack.svc.cluster.local:9090
+      access: proxy
+      isDefault: true
+    ## Datasource do loki no grafana
+    - name: Loki
+      access: proxy
+      isDefault: false
+      orgId: 1
+      type: loki
+      url: http://loki-gateway.loki.svc.cluster.local
+      version: 1
+
+persistence:
+  type: pvc
+  enabled: false
+  storageClassName: default
+  accessModes:
+    - ReadWriteOnce
+  size: 2Gi
+  # annotations: {}
+  finalizers:
+    - kubernetes.io/pvc-protection
+  extraPvcLabels: {}
