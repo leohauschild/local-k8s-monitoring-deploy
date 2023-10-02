@@ -1,3 +1,2 @@
-Falar sobre failed to make file target manager: too many open files
-arquivo: /proc/sys/fs/inotify/max_user_instances 
-alterar limites 
+### Repositório criado para o mini artigo publicado no Midium:  
+link aqui

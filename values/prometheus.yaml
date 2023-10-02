@@ -28,5 +28,5 @@ alertmanager:
       - name: 'null'
       - name: discord
         discord_configs:
-        - webhook_url: 'https://discord.com/api/webhooks/1124426043646816276/8y3eISd4NPVJ7TRDvC7q4lhYOoi4gQ7iqShFUguwFz4sOumOQoeJKcKbFosFKWVklDq6'
+        - webhook_url: ''
           send_resolved: true
