@@ -1,2 +1,2 @@
 ### Repositório criado para o mini artigo publicado no Midium:  
-[Artigo Medium](https://github.com/leohauschild/local-k8s-monitoring-deploy)
+[Artigo Medium](https://medium.com/@leohauschild/realizando-deploy-do-kube-prometheus-grafana-loki-e-promtail-no-kind-usando-terraform-e-helm-ce6d95e4df0e)
